@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <a href="#">Home</a>
+      <a href="/saved">Saved</a>
+      <button type="button" class="btn btn-default navbar-btn" id="scrape-nav-btn">Scrape new articles</button>
+    </div>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="main-title">Mongo News Scraper</h1>
+    <p>Keep up with your favorite publication</p>
+  </div>
+</div>
+
+<div class="content-area">
+
+    {{#each savedArticle}}
+      <div class="article-box-header">
+        <h3 class="article-title">{{this.title}}</h3>
+        <button class="add-comment"></button>
+        <button class="delete-article"></button>
+      </div>
+      <div class="article-content">
+        <div class="article-image"></div>
+        <p class="article-preview">{{this.text}}</p>
+      </div>
+    {{/each}}
+
+</div>
