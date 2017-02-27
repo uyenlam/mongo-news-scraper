@@ -21,6 +21,23 @@
 		<title>Mongo News Scraper</title>
 	</head>
 	<body>
-		{{{ body }}}
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+			<a href="#">Home</a>
+			<a href="/saved">Saved</a>
+			<button type="button" class="btn btn-default navbar-btn" id="scrape-nav-btn">Scrape new articles</button>
+			</div>
+		</nav>
+
+		<div class="container">
+		<div class="jumbotron">
+			<h1 class="main-title">Mongo News Scraper</h1>
+			<p>What's breaking? Keep up with your favorite publication</p>
+		</div>
+		</div>
+		<div class="content-area">
+			{{{ body }}}
+		</div>
 	</body>
 </html>
