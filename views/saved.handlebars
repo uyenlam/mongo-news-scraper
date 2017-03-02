@@ -15,6 +15,7 @@
   </div>
 
   {{!--modal-{{id}} is necessary for accessing the modal later using jQuery--}}
+  {{!--we nest the modal inside {{each}} so that it can inherit the {{this._id}} and {{this.title}}--}}
   <div class="modal fade" tabindex="-1" role="dialog" id="modal-{{this._id}}"> 
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -23,7 +24,9 @@
         </div>
         <div class="modal-body">
           {{!--use dynamic javascript to populate the DOM here instead of using handlebars --}}
-          <div class="all-notes" id="notes-{{this._id}}"></div>
+          <div class="all-notes" id="notes-{{this._id}}">
+            
+          </div>
           {{!--add new notes here--}}
           <form method="POST" action="/note/new">
             <p>Add a new note</p>

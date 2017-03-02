@@ -84,6 +84,7 @@ app.get("/scrape", function(req, res) {
     }) //request
 
   // Render the index file with the new result variable
+  res.json(result);
   res.render("index",{article: result})
 });
 
@@ -115,7 +116,7 @@ app.get("/saved", function(req, res) {
     }
     // Or send the doc to the browser
     else {
-      res.render("saved", {savedArticle: doc});
+      res.render("saved", {savedA: doc});
     }
   });
 });
@@ -131,16 +132,16 @@ app.post('/article/del/:articleId', function(req, res){
       }
       // Or send the doc to the browser
       else {
-        res.send(doc);
+        res.redirect("/saved");
       }
   })
 })
 
 
 // Route to post a new note
-app.post("/note/new/:articleId", function(req, res){
-  var articleId = req.params.articleId;
-  var note = new Notes(req.body);
+app.post("/note/new", function(req, res){
+  var articleId = req.body.articleId;
+  var note = new Notes(req.body.noteContent);
 
   note.save(function(error, doc){
     if (error){
@@ -152,7 +153,8 @@ app.post("/note/new/:articleId", function(req, res){
           res.send(err);
         }
         else {
-          res.send(newdoc);
+          res.redirect('/saved');
+
         }
       })
     }
@@ -187,7 +189,7 @@ app.post('/note/del/:noteId', function(req, res){
       }
       // Or send the doc to the browser
       else {
-        res.send(doc);
+        res.redirect('/saved');
       }
   })
 })
